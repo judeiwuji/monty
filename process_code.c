@@ -33,6 +33,7 @@ void process_code(stack_t **stack, char *b_code, int lineno)
 		can_add(parsed->data, stack, lineno);
 		can_sub(parsed->data, stack, lineno);
 		can_div(parsed->data, stack, lineno);
+		can_mul(parsed->data, stack, lineno);
 		op(stack, arg);
 	}
 	free_parsed(parsed);
