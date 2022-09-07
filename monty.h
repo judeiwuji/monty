@@ -68,6 +68,7 @@ void op_sub(stack_t **stack, unsigned int line_number __attribute__((unused)));
 void op_div(stack_t **stack, unsigned int line_number __attribute__((unused)));
 void op_mul(stack_t **stack, unsigned int line_number __attribute__((unused)));
 void op_mod(stack_t **stack, unsigned int line_number __attribute__((unused)));
+void op_pchar(stack_t **stack, unsigned int line_number __attribute__((unused)));
 void process_code(stack_t **stack, char *b_code, int lineno);
 void free_parsed(parser_t *head);
 void free_stack(stack_t *head);
@@ -80,5 +81,6 @@ int can_sub(char *op_code, stack_t **stack, int lineno);
 int can_div(char *op_code, stack_t **stack, int lineno);
 int can_mul(char *op_code, stack_t **stack, int lineno);
 int can_mod(char *op_code, stack_t **stack, int lineno);
+int can_pchar(char *op_code, stack_t **stack, int lineno);
 int is_comment(char *b_code);
 #endif
