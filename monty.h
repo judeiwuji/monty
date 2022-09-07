@@ -60,10 +60,12 @@ void op_push(stack_t **stack, unsigned int line_number);
 void op_pall(stack_t **stack, unsigned int line_number __attribute__((unused)));
 void op_pint(stack_t **stack, unsigned int line_number __attribute__((unused)));
 void op_pop(stack_t **stack, unsigned int line_number __attribute__((unused)));
+void op_swap(stack_t **stack, unsigned int line_number __attribute__((unused)));
 void process_code(stack_t **stack, char *b_code, int lineno);
 void free_parsed(parser_t *head);
 void free_stack(stack_t *head);
 int can_push(char *op_code, parser_t *arg, int lineno);
 int can_pint(char *op_code, stack_t **stack, int lineno);
 int can_pop(char *op_code, stack_t **stack, int lineno);
+int can_swap(char *op_code, stack_t **stack, int lineno);
 #endif

@@ -29,6 +29,7 @@ void process_code(stack_t **stack, char *b_code, int lineno)
 			arg = atoi(parsed->next->data);
 		can_pint(parsed->data, stack, lineno);
 		can_pop(parsed->data, stack, lineno);
+		can_swap(parsed->data, stack, lineno);
 		op(stack, arg);
 	}
 	free_parsed(parsed);
