@@ -8,11 +8,14 @@
  */
 int isint(char *str)
 {
-	int i;
+	int i = 0;
 
 	if (str == NULL)
 		return (0);
-	for (i = 0; str[i] != '\0'; i++)
+	if (str[0] == '-')
+		i = 1;
+
+	for (; str[i] != '\0'; i++)
 	{
 		if (!isdigit(str[i]))
 			return (0);
