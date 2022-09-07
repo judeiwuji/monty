@@ -23,7 +23,8 @@ int main(int argc, char **argv)
 	status = read_byte_codes(filename, &b_code);
 	while (status == 1)
 	{
-		process_code(&stack, b_code, lineno);
+		if (!is_comment(b_code))
+			process_code(&stack, b_code, lineno);
 		free(b_code);
 		status = read_byte_codes(NULL, &b_code);
 		++lineno;

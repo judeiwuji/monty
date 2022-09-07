@@ -80,4 +80,5 @@ int can_sub(char *op_code, stack_t **stack, int lineno);
 int can_div(char *op_code, stack_t **stack, int lineno);
 int can_mul(char *op_code, stack_t **stack, int lineno);
 int can_mod(char *op_code, stack_t **stack, int lineno);
+int is_comment(char *b_code);
 #endif
