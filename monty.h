@@ -62,6 +62,8 @@ void op_pint(stack_t **stack, unsigned int line_number __attribute__((unused)));
 void op_pop(stack_t **stack, unsigned int line_number __attribute__((unused)));
 void op_swap(stack_t **stack, unsigned int line_number __attribute__((unused)));
 void op_add(stack_t **stack, unsigned int line_number __attribute__((unused)));
+void op_nop(stack_t **stack __attribute__((unused)),
+			unsigned int line_number __attribute__((unused)));
 void process_code(stack_t **stack, char *b_code, int lineno);
 void free_parsed(parser_t *head);
 void free_stack(stack_t *head);
