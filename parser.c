@@ -10,7 +10,7 @@
 parser_t *parser(char *b_code)
 {
 	parser_t *parsed = NULL;
-	parser_t *node;
+	parser_t *node, *prev;
 	char *token;
 
 	token = strtok(b_code, " ");
@@ -18,13 +18,17 @@ parser_t *parser(char *b_code)
 	{
 		node = malloc(sizeof(parser_t));
 		mem_error_check(node);
-		if (parsed == NULL)
-			parsed = node;
-		else
-			parsed->next = node;
 		node->data = token;
 		node->next = NULL;
 		token = strtok(NULL, " ");
+		if (parsed == NULL)
+		{
+			parsed = node;
+			prev = node;
+			continue;
+		}
+		prev->next = node;
+		prev = node;
 	}
 	return (parsed);
 }

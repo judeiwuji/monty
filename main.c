@@ -28,5 +28,7 @@ int main(int argc, char **argv)
 		status = read_byte_codes(NULL, &b_code);
 		++lineno;
 	}
+	free(b_code);
+	free_stack(stack);
 	return (0);
 }
