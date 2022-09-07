@@ -2,8 +2,8 @@
 
 /**
  * op_swap - Swaps the last two items in the stack
- * @stack: The stack to be pushed item to
- * @line_number: The data
+ * @stack: stack_t
+ * @line_number: int
  *
  * Return: void
  */

@@ -2,8 +2,8 @@
 
 /**
  * op_push - Pushes an item to top of the stack
- * @stack: The stack to be pushed item to
- * @line_number: The data
+ * @stack: stack_t
+ * @line_number: int
  *
  * Return: void
  */
