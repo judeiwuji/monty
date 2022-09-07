@@ -73,6 +73,8 @@ void op_pstr(stack_t **stack, unsigned int line_number
 			 __attribute__((unused)));
 void op_rotl(stack_t **stack, unsigned int line_number
 			 __attribute__((unused)));
+void op_rotr(stack_t **stack, unsigned int line_number
+			 __attribute__((unused)));
 void process_code(stack_t **stack, char *b_code, int lineno);
 void free_parsed(parser_t *head);
 void free_stack(stack_t *head);
