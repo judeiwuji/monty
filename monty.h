@@ -1,5 +1,13 @@
 #ifndef _MONTY_H_
 #define _MONTY_H_
+#define MAX_READ_SIZE 100
+#include <ctype.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdarg.h>
+#include <unistd.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -28,4 +36,27 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/**
+ * struct parser_s - linked list for parser
+ * @data: string
+ * @next: points to the next element
+ *
+ * Description: linked list node structure
+ */
+typedef struct parser_s
+{
+	char *data;
+	struct parser_s *next;
+} parser_t;
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+char *_itoa(int num);
+void print_errors(int n, ...);
+void mem_error_check(void *data);
+int isint(char *str);
+int read_byte_codes(char *filename, char **b_code);
+parser_t *parser(char *b_code);
+void (*get_op_func(char *opcode))(stack_t **stack, unsigned int line_number);
+void op_push(stack_t **stack, unsigned int line_number);
+void op_pall(stack_t **stack, unsigned int line_number __attribute__((unused)));
+void process_code(stack_t **stack, char *b_code, int lineno);
 #endif
