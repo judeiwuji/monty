@@ -11,7 +11,7 @@
 void process_code(stack_t **stack, char *b_code, int lineno)
 {
 	int arg;
-	parser_t *parsed, *parsed_arg;
+	parser_t *parsed;
 	void (*op)(stack_t **stack, unsigned int line_number) = NULL;
 
 	parsed = parser(b_code);
@@ -25,16 +25,9 @@ void process_code(stack_t **stack, char *b_code, int lineno)
 			exit(EXIT_FAILURE);
 		}
 		arg = 0;
-		if (strcmp(parsed->data, "push") == 0)
-		{
-			parsed_arg = parsed->next;
-			if (parsed_arg == NULL || isint(parsed_arg->data) == 0)
-			{
-				print_errors(3, "L", _itoa(lineno), ": usage: push integer\n");
-				exit(EXIT_FAILURE);
-			}
-			arg = atoi(parsed_arg->data);
-		}
+		if (can_push(parsed->data, parsed->next, lineno))
+			arg = atoi(parsed->next->data);
+		can_pint(parsed->data, stack, lineno);
 		op(stack, arg);
 	}
 	free_parsed(parsed);

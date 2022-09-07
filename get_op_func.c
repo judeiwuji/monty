@@ -11,6 +11,7 @@ void (*get_op_func(char *opcode))(stack_t **stack, unsigned int line_number)
 	instruction_t opcodes[] = {
 		{"push", op_push},
 		{"pall", op_pall},
+		{"pint", op_pint},
 		{NULL, NULL},
 	};
 	int i;
