@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * can_swap - Checks if swap operation can be done
+ * can_add - Checks if add operation can be done
  * @op_code: string
  * @stack: stack_t
  * @lineno: int
