@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * can_pint - Checks if pint operation can be done
+ * can_pop - Checks if pint operation can be done
  * @op_code: string
  * @stack: stack_t
  * @lineno: int
