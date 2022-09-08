@@ -10,21 +10,23 @@
 void op_rotr(stack_t **stack, unsigned int line_number
 			 __attribute__((unused)))
 {
-	stack_t *tail, *node, *temp;
+	stack_t *head, *tail, *temp;
 
-	tail = (*stack);
-	if (tail == NULL)
+	head = (*stack);
+	tail = head;
+	if (head == NULL)
 		return;
 	while (tail->next != NULL)
 		tail = tail->next;
-	node = tail;
-	while (node != NULL)
+	if (head != tail)
 	{
-		temp = node->prev;
-		node->prev = node->next;
-		node->next = temp;
-		node = temp;
+		temp = tail->prev;
+		tail->next = head;
+		tail->prev = NULL;
+		head->prev = tail;
+		temp->next = NULL;
 	}
-	tail->prev = NULL;
-	(*stack) = tail;
+
+	head = tail;
+	(*stack) = head;
 }
