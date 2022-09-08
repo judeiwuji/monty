@@ -10,7 +10,7 @@
 void op_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node;
-	stack_t *head;
+	stack_t *head, *tail;
 
 	node = malloc(sizeof(stack_t));
 	mem_error_check(node);
@@ -20,8 +20,24 @@ void op_push(stack_t **stack, unsigned int line_number)
 	if ((*stack) != NULL)
 	{
 		head = (*stack);
-		node->next = head;
-		head->prev = node;
+		tail = (*stack);
+
+		/* stack */
+		if (mode == 0)
+		{
+			node->next = head;
+			head->prev = node;
+		}
+
+		/* queue */
+		if (mode == 1)
+		{
+			while (tail->next != NULL)
+				tail = tail->next;
+			tail->next = node;
+			node->prev = tail;
+			node = head;
+		}
 	}
 	(*stack) = node;
 }
